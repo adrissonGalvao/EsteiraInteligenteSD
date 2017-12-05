@@ -1,0 +1,19 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY esteira IS
+	PORT(PESO: IN BIT;
+		SERVO_POSITION: OUT BIT_VECTOR (1 DOWNTO 0);
+		ESTERIA_ACTIVE:OUT BIT);
+
+end esteira;
+
+
+ARCHITECTURE esteira_arq OF esteira IS
+	BEGIN
+		SERVO_POSITION<= "10" WHEN PESO='1' ELSE
+							  "01" WHEN PESO='0';
+		ESTERIA_ACTIVE<= '1' WHEN ACTIVE_PESO='0' ELSE
+								'0' WHEN ACTIVE_PESO='1';
+END esteira_inteligente_arq;
+							  
